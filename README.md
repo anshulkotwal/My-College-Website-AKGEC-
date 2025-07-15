@@ -67,15 +67,13 @@ Use Live Server in VS Code for instant preview
 
 <img width="1893" height="937" alt="{E4747FED-2958-48D9-B96A-D96E7E6117DE}" src="https://github.com/user-attachments/assets/1b1f409b-828a-4640-bf83-b72054d9561a" />
 
-## 🙏 Acknowledgements
+##🙏 Acknowledgements
 Font Awesome – For icons
-
-## AKGEC Official – For layout and data inspiration
+AKGEC Official – For layout and data inspiration
 
 ## 🌐 Live Site
 🔗 [@Akgec.live](https://anshulakgec.netlify.app/)
 
 ## 🤝 Connect with Me
 https://www.linkedin.com/in/anshul-kotwal/
-
 
