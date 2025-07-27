@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Technology Department</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: #34495e;
+            padding: 20px 0;
+            border-bottom: 3px solid #f1c40f;
+        }
+
+        .breadcrumb {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        .breadcrumb span {
+            color: #f1c40f;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .nav-btn {
+            background-color: #f1c40f;
+            color: #2c3e50;
+            padding: 12px 25px;
+            border: 2px solid #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            background-color: #e67e22;
+            transform: translateY(-2px);
+        }
+
+        /* Program Info */
+        .program-info {
+            margin-bottom: 30px;
+        }
+
+        .program-info h3 {
+            color: #3498db;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        /* Content Section */
+        .content-section {
+            margin-bottom: 40px;
+        }
+
+        .content-section p {
+            text-align: justify;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Vision Mission Section */
+        .vision-mission {
+            background-color: #34495e;
+            margin: 40px 0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .vm-header {
+            background-color: #2c3e50;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #f1c40f;
+        }
+
+        .vm-header h2 {
+            color: #f1c40f;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .vm-header::before {
+            content: "👁";
+            font-size: 1.2rem;
+        }
+
+        .vm-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .vm-item h3 {
+            color: #ecf0f1;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .vm-item p {
+            color: #bdc3c7;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Labs Grid Section */
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+            padding: 20px 0;
+        }
+
+        .lab-card {
+            padding: 40px 20px;
+            color: white;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .lab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .lab-card.blue { background-color: #3498db; }
+        .lab-card.purple { background-color: #9b59b6; }
+        .lab-card.orange { background-color: #f39c12; }
+        .lab-card.teal { background-color: #1abc9c; }
+        .lab-card.gray { background-color: #7f8c8d; }
+        .lab-card.green { background-color: #27ae60; }
+        .lab-card.red { background-color: #e74c3c; }
+        .lab-card.dark-purple { background-color: #8e44ad; }
+
+                /* Labs Section */
+        .labs-section {
+            margin: 40px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .labs-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .labs-content {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid #bdc3c7;
+        }
+
+        .labs-content h3 {
+            font-size: 1.1rem;
+            margin: 0;
+            padding: 15px 20px;
+            background-color: #bdc3c7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background-color 0.3s ease;
+            color: #2980b9;
+            font-weight: normal;
+        }
+
+        .labs-content h3:hover {
+            background-color: #95a5a6;
+        }
+
+        .labs-content h3::after {
+            content: '▼';
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+            color: #2c3e50;
+        }
+
+        .labs-content h3.collapsed::after {
+            transform: rotate(-90deg);
+        }
+
+        .labs-details {
+            padding: 20px;
+            background-color: #ecf0f1;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            overflow: hidden;
+        }
+
+        .labs-details.collapsed {
+            max-height: 0;
+            padding: 0 20px;
+        }
+
+        .labs-item {
+            margin-bottom: 15px;
+            text-align: justify;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .labs-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .labs-list {
+            list-style: decimal;
+            padding-left: 20px;
+        }
+
+        .labs-list li {
+            margin-bottom: 10px;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        /* Table Styles */
+        .labs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .labs-table th,
+        .labs-table td {
+            border: 1px solid #bdc3c7;
+            padding: 8px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .labs-table th {
+            background-color: #d5dbdb;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .labs-table td {
+            background-color: #ecf0f1;
+        }
+
+        .table-note {
+            font-size: 0.9em;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        .blue-text {
+            color: #2980b9;
+        }
+
+        /* Departmental Activities Section */
+        .dept-activities {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .dept-activities h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .know-more-btn {
+            background-color: #f1c40f;
+            color: #2c3e50;
+            padding: 12px 30px;
+            border: none;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .know-more-btn:hover {
+            background-color: #e67e22;
+            transform: translateY(-2px);
+        }
+
+        /* Departmental Society Section */
+        .dept-society {
+            background-color: #34495e;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .dept-society h2 {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: #ecf0f1;
+            font-weight: 300;
+        }
+
+        .society-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .society-item {
+            text-align: center;
+        }
+
+        .society-item h3 {
+            color: #ecf0f1;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .society-btn {
+            background-color: #f1c40f;
+            color: #2c3e50;
+            padding: 10px 25px;
+            border: none;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .society-btn:hover {
+            background-color: #e67e22;
+            transform: translateY(-2px);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: #ecf0f1;
+            padding: 60px 0;
+            color: #2c3e50;
+        }
+
+        .gallery-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 16/10;
+            background-color: #bdc3c7;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Faculty Section */
+        .faculty-section {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            padding: 60px 0;
+        }
+
+        .faculty-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .faculty-description {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .view-all-btn {
+            background-color: #f1c40f;
+            color: #2c3e50;
+            padding: 12px 30px;
+            border: none;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            width: fit-content;
+        }
+
+        .view-all-btn:hover {
+            background-color: #e67e22;
+            transform: translateY(-2px);
+        }
+
+        /* Labs Info Section */
+        .labs-info-section {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            padding: 60px 0;
+        }
+
+        .labs-info-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .labs-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .labs-info h3 {
+            color: #3498db;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .labs-info ol {
+            padding-left: 20px;
+        }
+
+        .labs-info li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+               /* PEOs Section */
+        .peos-section {
+            margin: 40px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .peos-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .peos-content {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .peos-content h3 {
+            font-size: 1.1rem;
+            margin: 0;
+            padding: 15px 20px;
+            background-color: #bdc3c7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .peos-content h3:hover {
+            background-color: #95a5a6;
+        }
+
+        .peos-content h3::after {
+            content: '▼';
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .peos-content h3.collapsed::after {
+            transform: rotate(-90deg);
+        }
+
+        .peos-details {
+            padding: 20px;
+            background-color: #ecf0f1;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            overflow: hidden;
+        }
+
+        .peos-details.collapsed {
+            max-height: 0;
+            padding: 0 20px;
+        }
+
+        .peo-item {
+            margin-bottom: 15px;
+        }
+
+        .peo-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .peo-label {
+            font-weight: bold;
+            color: #34495e;
+            margin-bottom: 5px;
+        }
+
+        .peo-description {
+            text-align: justify;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .section-divider {
+            margin: 20px 0;
+            border-bottom: 1px solid #bdc3c7;
+        }
+
+        /* Additional sections styling */
+        .pos-content, .psos-content {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .pos-content h3, .psos-content h3 {
+            font-size: 1.1rem;
+            margin: 0;
+            padding: 15px 20px;
+            background-color: #bdc3c7;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .pos-content h3:hover, .psos-content h3:hover {
+            background-color: #95a5a6;
+        }
+
+        .pos-content h3::after, .psos-content h3::after {
+            content: '▼';
+            transition: transform 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .pos-content h3.collapsed::after, .psos-content h3.collapsed::after {
+            transform: rotate(-90deg);
+        }
+
+        .pos-details, .psos-details {
+            padding: 20px;
+            background-color: #ecf0f1;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            overflow: hidden;
+        }
+
+        .pos-details.collapsed, .psos-details.collapsed {
+            max-height: 0;
+            padding: 0 20px;
+        }
+
+        /* HOD Section */
+        .hod-section {
+            background-color: #34495e;
+            padding: 40px 0;
+            margin: 40px 0;
+        }
+
+        .hod-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: #ecf0f1;
+        }
+
+        .hod-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .hod-text p {
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .hod-profile {
+            text-align: center;
+        }
+
+        .hod-image {
+            width: 250px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .hod-name {
+            font-size: 1.3rem;
+            color: #f1c40f;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hod-credentials {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            margin-bottom: 10px;
+        }
+
+        .hod-contact {
+            font-size: 0.85rem;
+            color: #3498db;
+        }
+
+        /* Admission Enquiry Sidebar */
+        .admission-sidebar {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #c0392b;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            padding: 20px 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .admission-sidebar:hover {
+            background-color: #a93226;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-btn {
+                width: 90%;
+                text-align: center;
+            }
+
+            .vm-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .hod-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .hod-image {
+                width: 200px;
+                height: 240px;
+            }
+
+            .peos-title, .hod-title {
+                font-size: 1.8rem;
+            }
+
+            .admission-sidebar {
+                font-size: 12px;
+                padding: 15px 8px;
+            }
+
+            .labs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .society-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .dept-activities h2, .dept-society h2, .gallery-section h2, .faculty-section h2, .labs-info-section h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .main-title {
+                font-size: 1.7rem;
+            }
+
+            .nav-btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+
+            .hod-image {
+                width: 180px;
+                height: 220px;
+            }
+
+            .vm-content {
+                padding: 15px;
+            }
+
+            .peos-title, .hod-title {
+                font-size: 1.5rem;
+            }
+
+            .labs-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .lab-card {
+                padding: 30px 15px;
+                font-size: 1rem;
+            }
+
+            .dept-activities h2, .dept-society h2, .gallery-section h2, .faculty-section h2, .labs-info-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation for buttons */
+        .nav-btn:active {
+            transform: scale(0.98);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ecf0f1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f39c12, #e74c3c, #9b59b6, #3498db);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #f39c12;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #f39c12;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .contact-item i {
+            color: #f39c12;
+            margin-right: 15px;
+            margin-top: 3px;
+            font-size: 1.1rem;
+            min-width: 20px;
+        }
+
+        .contact-item span {
+            flex: 1;
+        }
+
+        .quick-links {
+            list-style: none;
+        }
+
+        .quick-links li {
+            margin-bottom: 12px;
+        }
+
+        .quick-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .quick-links a::before {
+            content: '▶';
+            color: #f39c12;
+            margin-right: 10px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .quick-links a:hover {
+            color: #fff;
+            background: rgba(243, 156, 18, 0.2);
+            transform: translateX(10px);
+        }
+
+        .quick-links a:hover::before {
+            margin-right: 15px;
+        }
+
+        .about-text {
+            line-height: 1.8;
+            color: #bdc3c7;
+            margin-bottom: 20px;
+        }
+
+        .college-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+            margin-top: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #f39c12;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .powered-by {
+            color: #95a5a6;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            
+            .about-section {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                padding: 40px 15px 30px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-section h3 {
+                font-size: 1.2rem;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .contact-item i {
+                margin-bottom: 5px;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .college-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                padding: 30px 10px 20px;
+            }
+            
+            .contact-item {
+                padding: 8px;
+            }
+            
+            .quick-links a {
+                padding: 6px 8px;
+            }
+            
+            .stat-item {
+                padding: 10px;
+            }
+            
+            .stat-number {
+                font-size: 1.2rem;
+            }
+            
+            .social-links a {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #f39c12;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top:hover {
+            background: #e67e22;
+            transform: translateY(-3px);
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Admission Enquiry Sidebar -->
+    <div class="admission-sidebar" onclick="openAdmissionEnquiry()">
+        ADMISSIONS ENQUIRY
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="breadcrumb">
+                DEPARTMENTS <span>»</span> Information Technology
+            </div>
+            <h1 class="main-title">Information Technology</h1>
+            
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <a href="#faculty" class="nav-btn">FACULTY</a>
+                <a href="#labs" class="nav-btn">LABS</a>
+                <a href="#achievements" class="nav-btn">ACHIEVEMENTS</a>
+                <a href="#society" class="nav-btn">SOCIETY</a>
+                <a href="#activities" class="nav-btn">DEPARTMENTAL ACTIVITIES</a>
+            </div>
+
+            <!-- Program Information -->
+            <div class="program-info">
+                <h3>B. Tech. Information Technology 180</h3>
+                <h3>B. Tech. Computer Science and Information Technology 120</h3>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Department Description -->
+        <section class="content-section">
+            <p>IT has changed the way of our life and the pace of change is very fast. This scenario is giving us new opportunity as well as new challenges. IT has enhanced the efficiency and effectiveness of business processes dramatically. ERP solutions have further empowered the organizations to do multi-location, multilingual and multicurrency operation in the global business environment. New ways of marketing, making friends, communication and socialization have come up in the form of blogs, forums, chats, emails etc.</p>
+            
+            <p>IT is working as a hub to drive the businesses to new heights. IT jobs are more paying as well as more demanding. To continuously learn and grasp new technologies is a real challenge for IT professionals. Creating such professionals to take this challenge and rise to the apex of IT profession is our goal. At AKGEC excellence is the way of life. We are committed to give students an environment to nurture their talent in to its fullest potential. This is achieved by learned faculty members, year round conduction of numerous seminars, guest lectures, and industry academia interaction, co-curricular & extracurricular activities. We strive to transform the students not only into good professionals but a good human being and a dutiful citizen.</p>
+        </section>
+
+        <!-- Vision & Mission -->
+        <section class="vision-mission">
+            <div class="vm-header">
+                <h2>Vision & Mission</h2>
+            </div>
+            <div class="vm-content">
+                <div class="vm-item">
+                    <h3>Vision</h3>
+                    <p>The vision of IT department is to produce highly competent and socially sensitive IT professionals and innovators, capable to excel in the multicultural and challenging industry scenario.</p>
+                </div>
+                <div class="vm-item">
+                    <h3>Mission</h3>
+                    <p>To establish a truly professional academic environment where sound and transparent teaching-learning processes are practiced by all stakeholders of the organization that helps in producing all around competent, humane and socially responsible industry-ready engineers who are capable of taking challenges from ever-demanding multi-cultural industrial environment.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PEOs Section -->
+        <section class="peos-section">
+        <h2 class="peos-title">PEOs, POs and PSOs</h2>
+        
+        <div class="peos-content">
+            <h3 onclick="toggleSection('peos-details', this)">Program Educational Objectives - PEOs</h3>
+            <div class="peos-details" id="peos-details">
+                <div class="peo-item">
+                    <div class="peo-label">PEO 1.</div>
+                    <div class="peo-description">Graduate Engineers will have high level of technical competence and necessary skills to achieve great success in Information Technology and related area.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PEO 2.</div>
+                    <div class="peo-description">Graduate Engineers will have required research & problem solving skills to generate innovative solution.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PEO 3.</div>
+                    <div class="peo-description">Graduate Engineers will have team spirits, communication and inter-personal skill to effectively work with all stakeholders in their professional career.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PEO 4.</div>
+                    <div class="peo-description">Graduate Engineer will have right kind of mindset and attitude with regard to societal needs and ethical responsibilities and quickly adapt to global work environment.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PEO 5.</div>
+                    <div class="peo-description">Graduate Engineers shall be able to continuously advance their educational growth and learn new technological know-how, relevant to their career enhancement and betterment of society.</div>
+                </div>
+            </div>
+        </div>
+
+         <div class="pos-content">
+            <h3 onclick="toggleSection('pos-details', this)" class="collapsed">Program Outcomes - POs</h3>
+            <div class="pos-details collapsed" id="pos-details">
+                <div class="peo-item">
+                    <div class="peo-description" style="margin-bottom: 20px;">Engineering Graduates will be able to:</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PO 1.</div>
+                    <div class="peo-description">Engineering knowledge :- Apply the knowledge of mathematics, science, engineering fundamentals, and an engineering specialization to the solution of complex engineering problems.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PO 2.</div>
+                    <div class="peo-description">Problem analysis :- Identify, formulate, review research literature, and analyze complex engineering problems reaching substantiated conclusions using first principles of mathematics, natural sciences, and engineering sciences.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PO 3.</div>
+                    <div class="peo-description">Design/development of solutions :- Design solutions for complex engineering problems and design system components or processes that meet the specified needs with appropriate consideration for the public health and safety, and the cultural, societal, and environmental considerations.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PO 4.</div>
+                    <div class="peo-description">Conduct investigations of complex problems :- Use research-based knowledge and research methods including design of experiments, analysis and interpretation of data, and synthesis of the information to provide valid conclusions.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PO 5.</div>
+                    <div class="peo-description">Modern tool usage :- Create, select, and apply appropriate techniques, resources, and modern engineering and IT tools including prediction and modelling to complex engineering activities with an understanding of the limitations.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PO 6.</div>
+                    <div class="peo-description">The engineer and society :- Apply reasoning informed by the contextual knowledge to assess societal, health, safety, legal and cultural issues and the consequent responsibilities relevant to the professional engineering practice.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PO 7.</div>
+                    <div class="peo-description">Environment and sustainability :- Understand the impact of the professional engineering solutions in societal and environmental contexts, and demonstrate the knowledge of, and need for sustainable development.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PO 8.</div>
+                    <div class="peo-description">Ethics :- Apply ethical principles and commit to professional ethics and responsibilities and norms of the engineering practice.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PO 9.</div>
+                    <div class="peo-description">Individual and team work :- Function effectively as an individual, and as a member or leader in diverse teams, and in multidisciplinary settings.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PO 10.</div>
+                    <div class="peo-description">Communication :- Communicate effectively on complex engineering activities with the engineering community and with society at large, such as, being able to comprehend and write effective reports and design documentation, make effective presentations, and give and receive clear instructions.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PO 11.</div>
+                    <div class="peo-description">Project management and finance :- Demonstrate knowledge and understanding of the engineering and management principles and apply these to one's own work, as a member and leader in a team, to manage projects and in multidisciplinary environments.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PO 12.</div>
+                    <div class="peo-description">Life-long learning :- Recognize the need for, and have the preparation and ability to engage in independent and life-long learning in the broadest context of technological change.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="psos-content">
+            <h3 onclick="toggleSection('psos-details', this)" class="collapsed">Program Specific Outcomes - PSOs</h3>
+            <div class="psos-details collapsed" id="psos-details">
+                <div class="peo-item">
+                    <div class="peo-description" style="margin-bottom: 20px;">Graduate of the program will be able to:</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PSO 1.</div>
+                    <div class="peo-description">Apply the acquired technical skills to enhance IT support and automation in various fields and applications in the latest trends and technologies.</div>
+                </div>
+                
+                <div class="peo-item">
+                    <div class="peo-label">PSO 2.</div>
+                    <div class="peo-description">Understand, analyze and develop IT based practical solutions for real world problems using appropriate methodology and to support sustainable development.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Labs Grid Section -->
+        <section id="labs" class="labs-grid">
+            <div class="lab-card blue">
+                <h3>Data structure<br>Lab</h3>
+            </div>
+            <div class="lab-card purple">
+                <h3>Data Analytics<br>Python Lab</h3>
+            </div>
+            <div class="lab-card orange">
+                <h3>C programming<br>Lab</h3>
+            </div>
+            <div class="lab-card teal">
+                <h3>Web Technology<br>Lab</h3>
+            </div>
+            <div class="lab-card gray">
+                <h3>Design and Analysis<br>of Algorithm Lab</h3>
+            </div>
+            <div class="lab-card green">
+                <h3>Mini Project<br>Project Lab</h3>
+            </div>
+            <div class="lab-card red">
+                <h3>Software<br>Engineering Lab</h3>
+            </div>
+            <div class="lab-card dark-purple">
+                <h3>DBMS<br>Lab</h3>
+            </div>
+            <div class="lab-card blue">
+                <h3>Artificial Intelligence<br>Lab</h3>
+            </div>
+            <div class="lab-card purple">
+                <h3>Distributed system<br>Lab</h3>
+            </div>
+            <div class="lab-card orange">
+                <h3>Operating System<br>Lab</h3>
+            </div>
+            <div class="lab-card teal">
+                <h3>Cloud Computing<br>Lab</h3>
+            </div>
+        </section>
+
+        <!-- Labs Information Section -->
+        <section class="labs-info-section">
+            <div class="container">
+                <h2>Labs</h2>
+                <div class="labs-content">
+            <h3 onclick="toggleSection('adequate-labs', this)">Adequate-and-well-equipped-laboratories-of-IT-department</h3>
+            <div class="labs-details" id="adequate-labs">
+                <ol class="labs-list">
+                    <li>The department has adequate number of laboratories as per requirement (strength of students in the department and number of labs / practical courses mentioned in syllabus scheme of university (AKTU, Lucknow).</li>
+                    <li>These laboratories are fully equipped with various equipment's, software tools and consumables.</li>
+                    <li>These labs have all the basic as well as advanced level facilities to fulfil the requirements of UG courses.</li>
+                    <li>These laboratories are utilized by the students and faculty members of IT department for performing the practical experiments, doing the Project Work and Research Activities (R & D).</li>
+                    <li>One dedicated lab staff member is always present in each lab room (responsibility of each lab room has been assigned to a particular lab staff).</li>
+                    <li>Adequate Budget is planned and expenditure is done from the allocated fund to ensure the repairing of faulty equipment's, purchase of consumables, lab equipment's and software tools.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="labs-content">
+            <h3 onclick="toggleSection('labs-list', this)" class="collapsed">The department is equipped with the following labs (for Odd and Even Semesters)</h3>
+            <div class="labs-details collapsed" id="labs-list">
+                <ol class="labs-list">
+                    <li>Advanced IT lab-1</li>
+                    <li>Advanced IT Lab-2</li>
+                    <li>Web Technology Lab</li>
+                    <li>Basic IT Lab</li>
+                    <li>Project Lab</li>
+                    <li>IT Lab – 6</li>
+                    <li>IT Lab – 7</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="labs-content">
+            <h3 onclick="toggleSection('facilities', this)" class="collapsed">Facilities available in IT Department Laboratories</h3>
+            <div class="labs-details collapsed" id="facilities">
+                <table class="labs-table">
+                    <thead>
+                        <tr>
+                            <th>S. No.</th>
+                            <th>Name of the Lab</th>
+                            <th>Lab contains (with consumables)</th>
+                            <th>No of students (Total Capacity)</th>
+                            <th>Configuration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Advanced IT Lab-1</td>
+                            <td>Laptops, CPU, Core Python, C, C++, Java Script and even Semester)</td>
+                            <td>37</td>
+                            <td class="blue-text">@ 36 PC: HP 260 G2 Core i3-6100T@2.30 Ghz Processor, 1st Gen 500GB GB -HDD/4 GB -RAM LCD Monitor, Keyboard and Optical Mouse</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Advanced IT Lab-2</td>
+                            <td>Java, C++, DS, Python, @ CSS, PHP/Java</td>
+                            <td>37</td>
+                            <td class="blue-text">@ 36 PC: HP 260 G2 Core i3-6100T@2.30 Ghz Processor, 1st Gen 500GB GB -HDD/4 GB -RAM LCD Monitor, Keyboard and Optical Mouse<br><br>@ 1 PC with Overhead 3000 watt Core i3@3.40 GHz Processor, 3rd Gen RAM -2 TB HDD -8 GB -LCD Monitor, Keyboard and Optical Mouse</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Web Technology Lab</td>
+                            <td>Web Technology lab PHP, designing, CSS, Computer Vision</td>
+                            <td>37</td>
+                            <td class="blue-text">@ 36 PC: Lenovo Core i3-4160@3.60 Ghz Processor, 1st GB RAM 500 GB HDD/LCD Monitor, Keyboard and Optical Mouse<br><br>@ 1 PC Lenovo Core i3-4160@3.60 Ghz Processor, 1st GB RAM 500 GB HDD/LCD Monitor, Keyboard and Optical Mouse</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Basic IT Lab</td>
+                            <td>C Programming, Java Writing, CC++, PHP</td>
+                            <td>35</td>
+                            <td class="blue-text">@ 32 PC with lenovo Core i3-4160@3.60 Ghz Processor, 1st GB RAM 500 GB HDD/LCD Monitor, Keyboard and Optical Mouse<br><br>@ 2 PC with A8-6410 Core Blue 1.6 Ghz Processor, @ GB RAM HDD 1TB HDD/LCD Monitor, Keyboard and Optical Mouse<br><br>@ 1 PC with 300 G2 Core i3-4160@2.90 Ghz Processor, 1st GB RAM 500 GB HDD/LCD Monitor, Keyboard and Optical Mouse</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Project Lab</td>
+                            <td>Project Lab</td>
+                            <td>26</td>
+                            <td class="blue-text">@ 26 PC Lenovo Core i3-4160@3.60 Ghz Processor, 1st GB RAM 500 GB HDD/LCD Monitor, Keyboard and Optical Mouse<br><br>@ 2 PC Core i7-7700 3.6GHz Processor, @ GB RAM 1TB HDD/LCD Monitor, Keyboard and Optical Mouse<br><br>@ 1 PC with IP -6100U Core i5-6200U 8GB Processor, @ GB RAM 1TB HDD/LCD Monitor, Keyboard and Optical Mouse</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>IT Lab – 6</td>
+                            <td></td>
+                            <td>37</td>
+                            <td class="blue-text">@ 36 PC with HP 260G4 Core Blue 3.4 Ghz Processor, @ GB RAM 1TB HDD/LCD Monitor, Keyboard and Optical Mouse<br><br>@ 1 PC with HP 260G4 Core Blue 2.70 Ghz Processor, @ GB RAM 1TB @ 240 SSD and Optical Mouse, Keyboard and Optical Mouse</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>IT Lab – 7</td>
+                            <td></td>
+                            <td>37</td>
+                            <td class="blue-text">Processor, 7th GB RAM 1TB @ 240 SSD Optical Mouse, Keyboard and Optical Mouse</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="table-note">
+                    <p>1. All labs have been formatted and are equipped with Air Conditioning.</p>
+                    <p>2. A Central UPS 500VA has been setup to provide backup for labs and department faculty rooms in the ECED Block.</p>
+                    <p>3. Each lab has individual UPS 500 high end and backup for labs.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="labs-content">
+            <h3 onclick="toggleSection('technical-support', this)" class="collapsed">Detail of Technical Manpower Support available in IT Department Laboratories</h3>
+            <div class="labs-details collapsed" id="technical-support">
+                <table class="labs-table">
+                    <thead>
+                        <tr>
+                            <th>S. No</th>
+                            <th>Name of Lab Staff</th>
+                            <th>Designation</th>
+                            <th>Qualification</th>
+                            <th>Date of Joining(DOJ) and Total work Experience</th>
+                            <th>Laboratory Area of Expertise</th>
+                            <th>Courses Assigned/</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Mr. Dharmendra Kaushik</td>
+                            <td>Lab Assistant</td>
+                            <td>MCA</td>
+                            <td>1 April 2006, 23 years</td>
+                            <td>Advanced IT Lab-1,<br>and<br>BASIC IT Lab-4</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Mr. Aftab Alam</td>
+                            <td>Lab Assistant</td>
+                            <td>MCA</td>
+                            <td>18 February 2008, 15 years</td>
+                            <td>Advanced IT Lab-2,<br>and<br>Project Lab – 5</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Mr. Prabhat Narain Shukla</td>
+                            <td>Lab Assistant</td>
+                            <td>B.Sc., PGDCA</td>
+                            <td>3 October 2011, 12 years</td>
+                            <td>Web Technology Lab – 3</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Mr. Vipin Kumar</td>
+                            <td>Lab Assistant</td>
+                            <td>B.A., Computer Hardware & Networking</td>
+                            <td>10 October 2022, 12 years</td>
+                            <td>IT Lab – 6<br>IT Lab – 7</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        </section>
+
+        <!-- Departmental Activities Section -->
+        <section id="activities" class="dept-activities">
+            <div class="container">
+                <h2>Departmental Activities</h2>
+                <a href="#" class="know-more-btn">⊕ KNOW MORE</a>
+            </div>
+        </section>
+
+        <!-- Departmental Society Section -->
+        <section id="society" class="dept-society">
+            <div class="container">
+                <h2>Departmental Society</h2>
+                <div class="society-grid">
+                    <div class="society-item">
+                        <h3>COMPUTER SOCIETY OF INDIA</h3>
+                        <a href="#" class="society-btn">⊕ CSI</a>
+                    </div>
+                    <div class="society-item">
+                        <h3>Big Data Centre of Excellence</h3>
+                        <a href="#" class="society-btn">⊕ BDCOE</a>
+                    </div>
+                    <div class="society-item">
+                        <h3>Cloud Computing Cell</h3>
+                        <a href="#" class="society-btn">⊕ CCC</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Department Archives Section -->
+        <section class="dept-activities">
+            <div class="container">
+                <h2>Department Archives</h2>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <h2>Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/itgallery.jpg" alt="Training Program">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/itgallery_1.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/itgallery_2.jpg" alt="Student Presentation">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/itgallery_3.jpg" alt="Technical Workshop">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Faculty Section -->
+        <section id="faculty" class="faculty-section">
+            <div class="container">
+                <h2>IT Faculty</h2>
+                <div class="faculty-description">
+                    <p>The IT department has highly qualified and experienced faculties. They have been actively involved in various research and professional activities which help in bringing substantial achievement in professional practice and research into the classroom.</p>
+                </div>
+                <a href="#" class="view-all-btn">VIEW ALL</a>
+            </div>
+        </section>
+
+        <!-- HOD Section -->
+        <section class="hod-section">
+            <div class="container">
+                <h2 class="hod-title">HOD</h2>
+                <div class="hod-content">
+                    <div class="hod-text">
+                        <p>Dr. Rahul Sharma stands as a distinguished computer scientist, seamlessly embodying the roles of a professor and an inventive educator-entrepreneur. His professional journey is a testament to his unwavering dedication to knowledge exploration and a fervent commitment to advancing the frontiers of research and education.</p>
+                        
+                        <p>Currently, he is heading the Information Technology Department and Technical Business Incubator at Ajay Kumar Garg Engineering College, Ghaziabad. Simultaneously, he serves as an adjunct professor at Tallinn University of Technology, Estonia and also engaged with prestigious research institutions in Finland and Germany. These collaborations underscore his position as a key player in the international arena, contributing to the forefront of cutting-edge advancements in computer science.</p>
+                        
+                        <p>In the dynamic intersection of academia and entrepreneurship, Dr. Sharma's leadership fosters an environment that nurtures innovation and practical application. His multifaceted approach to education and research positions him as a thought leader, inspiring those around him to push boundaries and contribute meaningfully to the evolving landscape of technology.</p>
+                    </div>
+                    <div class="hod-profile">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='300' viewBox='0 0 250 300'%3E%3Crect width='250' height='300' fill='%23bdc3c7'/%3E%3Ctext x='125' y='150' font-family='Arial' font-size='16' fill='%232c3e50' text-anchor='middle'%3EProfessor Image%3C/text%3E%3C/svg%3E" alt="Prof. Dr. Rahul Sharma" class="hod-image">
+                        <div class="hod-name">Prof. (Dr.) Rahul Sharma</div>
+                        <div class="hod-credentials">B.Tech, M.Tech, PhD (Taltech, EU</div>
+                        <div class="hod-contact">hodit@akgec.ac.in,<br>sharmarahul@akgec.ac.in</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <!-- Contact Information -->
+                <div class="footer-section">
+                    <h3><i class="fas fa-university"></i> Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                27th Km Milestone,<br>
+                                Delhi-Meerut Expressway,<br>
+                                P.O. Adhyatmik Nagar,<br>
+                                Ghaziabad - 201015
+                            </span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>8744052891-93</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@akgec.ac.in</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3><i class="fas fa-link"></i> Quick Links</h3>
+                    <ul class="quick-links">
+                        <li><a href="#" data-text="Online Fee Payment (Kotak)">Online Fee Payment (Kotak)</a></li>
+                        <li><a href="#" data-text="AKGIM-MBA Admission">AKGIM-MBA Admission</a></li>
+                        <li><a href="#" data-text="AKGIM-MBA">AKGIM-MBA</a></li>
+                        <li><a href="#" data-text="AICTE Approval Letters">AICTE Approval Letters</a></li>
+                        <li><a href="#" data-text="NIRF Data for Ranking 2025">NIRF Data for Ranking 2025</a></li>
+                        <li><a href="#" data-text="Mandatory Disclosure">Mandatory Disclosure</a></li>
+                        <li><a href="#" data-text="Open Educational Resources (OER)">Open Educational Resources (OER)</a></li>
+                        <li><a href="#" data-text="Online Reporting of Ragging Cases">Online Reporting of Ragging Cases</a></li>
+                        <li><a href="#" data-text="Fee Fixation Letter">Fee Fixation Letter</a></li>
+                        <li><a href="#" data-text="Grievance Committee">Grievance Committee</a></li>
+                        <li><a href="#" data-text="Internal Complaints Committee">Internal Complaints Committee</a></li>
+                    </ul>
+                </div>
+
+                <!-- About AKGEC -->
+                <div class="footer-section about-section">
+                    <h3><i class="fas fa-info-circle"></i> About AKGEC</h3>
+                    <div class="about-text">
+                        Ajay Kumar Garg Engineering College (AKGEC) offers four year under graduate B.Tech course in all major engineering branches, two year post graduate M.Tech course in four engineering branches and two year post graduate MCA course.
+                    </div>
+                    <div class="college-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">25+</span>
+                            <span class="stat-label">Years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10k+</span>
+                            <span class="stat-label">Alumni</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Faculty</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Branches</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-content">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        © 2025 Ajay Kumar Garg Engineering College. All rights reserved.
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="powered-by">
+                        Powered By: Software Incubator
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Admission enquiry function
+        function openAdmissionEnquiry() {
+            alert('Admission Enquiry - Contact: admissions@akgec.ac.in');
+        }
+
+        // Add scroll effect to admission sidebar
+        window.addEventListener('scroll', function() {
+            const sidebar = document.querySelector('.admission-sidebar');
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.1;
+            sidebar.style.transform = `translateY(calc(-50% + ${rate}px))`;
+        });
+
+        // Lab card interactions
+        document.querySelectorAll('.lab-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const labName = this.querySelector('h3').textContent.trim();
+                alert(`Opening ${labName} details...`);
+            });
+        });
+
+        // Gallery item interactions
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Simple lightbox effect
+                const img = this.querySelector('img');
+                const lightbox = document.createElement('div');
+                lightbox.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 10000;
+                    cursor: pointer;
+                `;
+                
+                const enlargedImg = img.cloneNode();
+                enlargedImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    border-radius: 10px;
+                `;
+                
+                lightbox.appendChild(enlargedImg);
+                document.body.appendChild(lightbox);
+                
+                lightbox.addEventListener('click', () => {
+                    document.body.removeChild(lightbox);
+                });
+            });
+        });
+
+        // Society button interactions
+        document.querySelectorAll('.society-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const societyName = this.textContent.replace('⊕ ', '');
+                alert(`Opening ${societyName} page...`);
+            });
+        });
+
+        // Know More and View All buttons
+        document.querySelectorAll('.know-more-btn, .view-all-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const section = this.textContent.includes('KNOW MORE') ? 'Activities' : 'Faculty';
+                alert(`Opening ${section} details page...`);
+            });
+        });
+
+          function toggleSection(sectionId, headerElement) {
+    const section = document.getElementById(sectionId);
+    const isCollapsed = section.classList.contains('collapsed');
+    
+    // Get all sections and headers from both PEOs and Labs
+    const allSections = document.querySelectorAll('.peos-details, .pos-details, .psos-details, .labs-details, .content-details');
+    const allHeaders = document.querySelectorAll('.peos-content h3, .pos-content h3, .psos-content h3, .labs-content h3, .content-block h3');
+    
+    if (isCollapsed) {
+        // First, collapse all other sections
+        allSections.forEach(otherSection => {
+            if (otherSection.id !== sectionId) {
+                otherSection.classList.add('collapsed');
+                otherSection.style.maxHeight = '0px';
+            }
+        });
+        
+        // Collapse all other headers
+        allHeaders.forEach(otherHeader => {
+            if (otherHeader !== headerElement) {
+                otherHeader.classList.add('collapsed');
+            }
+        });
+        
+        // Then expand the clicked section
+        section.classList.remove('collapsed');
+        headerElement.classList.remove('collapsed');
+        section.style.maxHeight = section.scrollHeight + 'px';
+    } else {
+        // If clicking on already open section, just collapse it
+        section.classList.add('collapsed');
+        headerElement.classList.add('collapsed');
+        section.style.maxHeight = '0px';
+    }
+}
+
+// Initialize sections
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all collapsed sections
+    const collapsedSections = document.querySelectorAll('.content-details.collapsed, .peos-details.collapsed, .pos-details.collapsed, .psos-details.collapsed, .labs-details.collapsed');
+    collapsedSections.forEach(section => {
+        section.style.maxHeight = '0px';
+    });
+    
+    // Set initial max-height for any expanded section
+    const expandedSections = document.querySelectorAll('.content-details:not(.collapsed), .peos-details:not(.collapsed), .pos-details:not(.collapsed), .psos-details:not(.collapsed), .labs-details:not(.collapsed)');
+    expandedSections.forEach(section => {
+        section.style.maxHeight = section.scrollHeight + 'px';
+    });
+});
+    </script>
+</body>
+</html>
